@@ -1,0 +1,22 @@
+require("dotenv").config();
+
+const express = require("express");
+const bodyParser = require("body-parser");
+const route = require("./routes/api");
+
+const app = express();
+const port = 5000;
+
+app.use(bodyParser.json());
+
+app.use("/api/v1", route);
+
+app.use((err, req, res, next) => {
+  if (err.name === "UnauthorizedError") {
+    res.status(401).json({ message: "You are not authorized." });
+  } else {
+    next(err);
+  }
+});
+
+app.listen(port, () => console.log(`Listening  on port : ${port}`));
