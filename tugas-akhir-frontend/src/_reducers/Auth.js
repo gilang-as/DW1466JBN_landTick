@@ -1,4 +1,4 @@
-import { AUTH_LOGIN } from "../config/constants";
+import { AUTH_LOGIN, AUTH_STATUS } from "../config/constants";
 
 // Setup Reducer for Redux
 const initialState = {
@@ -33,21 +33,21 @@ const Auth = (state = initialState, action) => {
         authentication: false,
         error: true
       };
-    //AUTH STATUS
-    // case `${AUTH_STATUS}_PENDING`:
-    //   return {
-    //     ...state
-    //   };
-    // case `${AUTH_STATUS}_FULFILLED`:
-    //   return {
-    //     ...state,
-    //     authStatus: action.payload
-    //   };
-    // case `${AUTH_STATUS}_REJECTED`:
-    //   return {
-    //     ...state,
-    //     error: true
-    //   };
+    // AUTH STATUS
+    case `${AUTH_STATUS}_PENDING`:
+      return {
+        ...state
+      };
+    case `${AUTH_STATUS}_FULFILLED`:
+      return {
+        ...state,
+        authStatus: action.payload
+      };
+    case `${AUTH_STATUS}_REJECTED`:
+      return {
+        ...state,
+        error: true
+      };
 
     //LOGOUT
     // case `${AUTH_LOGOUT}_PENDING`:

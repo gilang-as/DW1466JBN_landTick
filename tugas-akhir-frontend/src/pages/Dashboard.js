@@ -1,13 +1,21 @@
 import React, { Component } from "react";
+import { connect } from "react-redux";
 import { Form, Button, Container, Row, Col, Table } from "react-bootstrap";
 
+import { actionCheckAuth } from "../_actions/Auth";
+
 class Dashboard extends Component {
+  componentDidMount() {
+    this.props.actionCheckAuth();
+  }
   render() {
+    // const { authStatus, authentication } = this.props.auth;
+    // console.log("AUTH : ", authStatus, " - ", authentication);
     return (
       <>
         <div
           style={{
-            background: "#3498db",
+            background: "#c1c1c1",
             width: "100vw",
             paddingBottom: "3rem"
           }}
@@ -39,7 +47,7 @@ class Dashboard extends Component {
         <div className="Box-Form">
           <Row>
             <Col className="col-lg-2 text-center mt-5">
-              <h4>Tiket Kereta Api</h4>
+              {/* <h4>Tiket Kereta Api</h4> */}
             </Col>
             <Col>
               <Form>
@@ -144,5 +152,14 @@ class Dashboard extends Component {
     );
   }
 }
+const mapStateToProps = state => {
+  return { auth: state.auth };
+};
 
-export default Dashboard;
+function mapDispatchToProps(dispatch) {
+  return { actionCheckAuth: () => dispatch(actionCheckAuth()) };
+}
+
+const Dashpage = connect(mapStateToProps, mapDispatchToProps)(Dashboard);
+
+export default Dashpage;

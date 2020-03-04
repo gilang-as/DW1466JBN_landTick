@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { Button, Modal, Form } from "react-bootstrap";
 import { actionLogin } from "../../_actions/Auth";
-import { BrowserRouter as Redirect } from "react-router-dom";
 
 class LoginModal extends Component {
   documentData;
@@ -39,18 +38,17 @@ class LoginModal extends Component {
   };
 
   // on form submit...
-  handleFormSubmit = e => {
+  handleFormSubmit = async e => {
     e.preventDefault();
-    this.props.actionLogin(this.state);
+    await this.props.actionLogin(this.state);
+    if (this.props.auth.authentication) {
+      this.loginClose();
+    }
   };
 
   render() {
-    const { loading, authentication } = this.props.auth;
-    return authentication ? (
-      <>
-        <Redirect to={{ pathname: "/dashboard" }} />
-      </>
-    ) : (
+    const { loading } = this.props.auth;
+    return (
       <>
         <Modal
           show={this.state.login}

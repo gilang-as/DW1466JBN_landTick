@@ -1,4 +1,4 @@
-import { AUTH_LOGIN } from "../config/constants";
+import { AUTH_LOGIN, AUTH_STATUS, AUTH_LOGOUT } from "../config/constants";
 import { API } from "../config/api";
 
 export const actionLogin = data => {
@@ -23,26 +23,26 @@ export const actionLogin = data => {
 //   };
 // };
 
-// export const actionLogout = () => {
-//   return {
-//     type: AUTH_LOGOUT,
-//     payload: async () => {
-//       localStorage.clear();
-//       return false;
-//     }
-//   };
-// };
+export const actionLogout = () => {
+  return {
+    type: AUTH_LOGOUT,
+    payload: async () => {
+      localStorage.clear();
+      return false;
+    }
+  };
+};
 
-// export const actionCheckAuth = () => {
-//   return {
-//     type: AUTH_STATUS,
-//     payload: async () => {
-//       const data = localStorage.getItem("jwtToken");
-//       if (data) {
-//         return true;
-//       } else {
-//         return false;
-//       }
-//     }
-//   };
-// };
+export const actionCheckAuth = () => {
+  return {
+    type: AUTH_STATUS,
+    payload: async () => {
+      const data = localStorage.getItem("jwtToken");
+      if (data) {
+        return true;
+      } else {
+        return false;
+      }
+    }
+  };
+};

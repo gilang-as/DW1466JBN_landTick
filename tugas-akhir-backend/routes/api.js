@@ -17,6 +17,7 @@ const {
   AddOrder,
   StatusOrder
 } = require("../controllers/Order");
+const { UserDetails } = require("../controllers/User");
 
 //Default message
 router.get("/", (req, res) => {
@@ -40,4 +41,6 @@ router.post("/order", auth, AddOrder);
 router.get("/my-orders", auth, MyOrders);
 router.post("/status-order", auth, StatusOrder);
 
+//
+router.get("/user", auth, UserDetails);
 module.exports = router;
