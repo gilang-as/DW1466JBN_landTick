@@ -8,6 +8,7 @@ MyTick is an online and realtime train ticket purchase portal, this application 
   - [Installation](#installation)
   - [Server Setup](#server-setup)
   - [Client Setup](#client-setup)
+- [Screenshots](#screenshots)
 - [Built With](#built-with)
 - [Author](#author)
 - [License](#license)
@@ -86,6 +87,13 @@ BASE_URL=http://192.168.1.1:3000/api/v1
 ```
 
 Note that the variable `BASE_URL` above is your server network Internet Protocol. If you are using physical device, make sure your physical device and server computer have a same network connection.
+
+## Screenshots
+
+<img src="https://github.com/gilang-as/DW1466JBN_landTick/blob/master/MyTick.png?raw=true" />
+<img src="https://github.com/gilang-as/DW1466JBN_landTick/blob/master/MyTick%20-%20Admin.png?raw=true" />
+<img src="https://github.com/gilang-as/DW1466JBN_landTick/blob/master/MyTick%20-%20Tickets.png?raw=true" />
+<img src="https://github.com/gilang-as/DW1466JBN_landTick/blob/master/MyTick%20-%20book%20list.png?raw=true" />
 
 
 ## Built With
